@@ -16,8 +16,8 @@
   inline-size: 2.75rem;
   block-size: 2.75rem;
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  background: var(--color-white);
+  border: 1px solid var(--color-border-strong);
+  background: color-mix(in srgb, var(--color-mist-100) 5%, transparent);
   cursor: pointer;
 }
 
@@ -30,7 +30,7 @@
 .icon span {
   inline-size: 1.25rem;
   block-size: 2px;
-  background: var(--color-black);
+  background: var(--color-text);
   transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
@@ -61,8 +61,8 @@
   inset-block-start: calc(100% + var(--space-2));
   z-index: 50;
   inline-size: min(18rem, 90vw);
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
+  background: var(--color-navy-850);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   padding: var(--space-4);
@@ -84,6 +84,7 @@
   padding-block: var(--space-3);
   border-block-end: 1px solid var(--color-border);
   font-weight: 600;
+  color: var(--color-text);
   text-decoration: none;
 }
 

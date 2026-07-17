@@ -75,6 +75,10 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={dir} className={fontVariables}>
       <body>
+        {/* No-JS fallback: without the Reveal observer, keep scroll-reveal content visible. */}
+        <noscript>
+          <style>{".reveal{opacity:1!important;transform:none!important;}"}</style>
+        </noscript>
         <NextIntlClientProvider>
           <a href="#main-content" className="skip-link">
             {t("skipLink")}

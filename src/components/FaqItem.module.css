@@ -1,6 +1,18 @@
 .item {
-  border-block-end: 1px solid var(--color-border);
-  padding-block: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding-inline: var(--space-5);
+  margin-block-end: var(--space-3);
+  background: var(--gradient-surface);
+  transition: border-color var(--transition-base);
+}
+
+.item[open] {
+  border-color: var(--color-border-strong);
+}
+
+.item:hover {
+  border-color: var(--color-border-strong);
 }
 
 .question {
@@ -8,6 +20,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
+  padding-block: var(--space-4);
   cursor: pointer;
   font-weight: 600;
   font-size: var(--text-lg);
@@ -21,6 +34,7 @@
 .iconWrap {
   flex-shrink: 0;
   display: inline-flex;
+  color: var(--color-electric-cyan);
   transition: transform var(--transition-base);
 }
 
@@ -34,7 +48,7 @@
 }
 
 .answer {
-  margin-block-start: var(--space-3);
+  padding-block-end: var(--space-4);
   color: var(--color-text-muted);
   line-height: var(--leading-relaxed);
   max-inline-size: 60ch;

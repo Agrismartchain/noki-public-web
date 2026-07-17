@@ -9,26 +9,41 @@
 .marker {
   display: flex;
   align-items: center;
+  gap: var(--space-2);
 }
 
-.markerNumber {
+.markerCircle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  inline-size: 2.25rem;
-  block-size: 2.25rem;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
   flex-shrink: 0;
   border-radius: var(--radius-full);
-  background: var(--color-black);
-  color: var(--color-white);
-  font-weight: 700;
+  background: var(--gradient-surface);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+.markerIcon {
+  display: inline-flex;
+  font-size: 1.2rem;
+  color: var(--color-electric-cyan);
+}
+
+.markerNumber {
   font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  letter-spacing: 0.04em;
 }
 
 .connector {
   flex: 1 1 auto;
   block-size: 2px;
-  background: var(--color-border);
+  background: var(--gradient-line);
+  opacity: 0.4;
   margin-inline: var(--space-2);
 }
 

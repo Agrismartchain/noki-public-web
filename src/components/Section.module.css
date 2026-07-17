@@ -1,5 +1,7 @@
 .section {
+  position: relative;
   padding-block: var(--space-10);
+  isolation: isolate;
 }
 
 @media (min-width: 768px) {
@@ -9,21 +11,72 @@
 }
 
 .default {
-  background: var(--color-bg);
+  background: transparent;
   color: var(--color-text);
 }
 
 .muted {
-  background: var(--color-bg-muted);
+  background: linear-gradient(
+    180deg,
+    transparent,
+    color-mix(in srgb, var(--color-navy-800) 55%, transparent) 12%,
+    color-mix(in srgb, var(--color-navy-800) 55%, transparent) 88%,
+    transparent
+  );
   color: var(--color-text);
 }
 
+.muted::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    44rem 22rem at 85% 0%,
+    color-mix(in srgb, var(--color-electric-blue) 10%, transparent),
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
 .inverted {
-  background: var(--color-bg-inverted);
-  color: var(--color-text-inverted);
+  background: var(--color-navy-950);
+  color: var(--color-mist-050);
+  box-shadow: inset 0 1px 0 var(--color-border), inset 0 -1px 0 var(--color-border);
+}
+
+.inverted::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+      36rem 26rem at 10% 20%,
+      color-mix(in srgb, var(--color-electric-cyan) 12%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      36rem 26rem at 90% 90%,
+      color-mix(in srgb, var(--color-electric-blue) 14%, transparent),
+      transparent 60%
+    );
+  pointer-events: none;
 }
 
 .accent {
-  background: var(--color-accent);
+  background: linear-gradient(155deg, var(--color-accent), #ffe14d);
   color: var(--color-accent-ink);
+}
+
+.accent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    40rem 24rem at 50% -20%,
+    color-mix(in srgb, var(--color-black) 8%, transparent),
+    transparent 65%
+  );
+  pointer-events: none;
 }

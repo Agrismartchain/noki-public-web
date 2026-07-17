@@ -1,7 +1,19 @@
 .footer {
-  background: var(--color-gray-900);
-  color: var(--color-white);
+  position: relative;
+  background: var(--color-navy-950);
+  color: var(--color-text);
   padding-block-start: var(--space-10);
+  border-block-start: 1px solid var(--color-border);
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset-block-start: -1px;
+  inset-inline: 0;
+  block-size: 1px;
+  background: var(--gradient-line);
+  opacity: 0.6;
 }
 
 .inner {
@@ -32,7 +44,7 @@
 }
 
 .tagline {
-  color: var(--color-gray-400);
+  color: var(--color-text-muted);
   max-inline-size: 32ch;
   line-height: var(--leading-relaxed);
 }
@@ -40,8 +52,8 @@
 .heading {
   font-size: var(--text-sm);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--color-gray-400);
+  letter-spacing: 0.06em;
+  color: var(--color-text-faint);
   margin-block-end: var(--space-3);
 }
 
@@ -55,21 +67,21 @@
 }
 
 .link {
-  color: var(--color-white);
+  color: var(--color-text);
   text-decoration: none;
 }
 
 .link:hover {
-  color: var(--color-gray-400);
+  color: var(--color-electric-cyan);
 }
 
 .bottom {
   margin-block-start: var(--space-8);
-  border-block-start: 1px solid var(--color-gray-700);
+  border-block-start: 1px solid var(--color-border);
   padding-block: var(--space-4);
   padding-inline: var(--container-padding-inline);
   max-width: var(--container-max);
   margin-inline: auto;
-  color: var(--color-gray-400);
+  color: var(--color-text-faint);
   font-size: var(--text-sm);
 }

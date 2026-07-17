@@ -2,8 +2,8 @@
   position: sticky;
   inset-block-start: 0;
   z-index: 40;
-  background: color-mix(in srgb, var(--color-white) 92%, transparent);
-  backdrop-filter: blur(8px);
+  background: color-mix(in srgb, var(--color-navy-950) 72%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
   border-block-end: 1px solid var(--color-border);
 }
 
@@ -37,6 +37,7 @@
   font-weight: 700;
   font-size: var(--text-lg);
   white-space: nowrap;
+  letter-spacing: 0.01em;
 }
 
 .nav {
@@ -54,13 +55,35 @@
 }
 
 .navLink {
+  position: relative;
+  display: inline-block;
+  padding-block: var(--space-2);
   text-decoration: none;
   font-weight: 600;
-  color: var(--color-text);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  inset-block-end: -1px;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  block-size: 2px;
+  background: var(--gradient-line);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition-base) var(--ease-premium);
 }
 
 .navLink:hover {
-  color: var(--color-text-muted);
+  color: var(--color-text);
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
 }
 
 .actions {

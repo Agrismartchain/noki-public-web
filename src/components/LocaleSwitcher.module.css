@@ -3,8 +3,9 @@
   align-items: center;
   gap: var(--space-1);
   padding: var(--space-1);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--color-mist-100) 4%, transparent);
 }
 
 .option {
@@ -25,20 +26,21 @@
 }
 
 .active {
-  background: var(--color-black);
-  color: var(--color-white);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
 }
 
 .dark {
-  border-color: var(--color-gray-700);
+  border-color: var(--color-border);
+  background: transparent;
 }
 
 .dark .option {
-  color: var(--color-gray-400);
+  color: var(--color-mist-500);
 }
 
 .dark .option:hover {
-  color: var(--color-white);
+  color: var(--color-text);
 }
 
 .dark .active {

@@ -1,0 +1,43 @@
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-strong);
+  background: color-mix(in srgb, var(--color-mist-100) 5%, transparent);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-block-end: var(--space-4);
+}
+
+.dot {
+  inline-size: 6px;
+  block-size: 6px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-line);
+  flex-shrink: 0;
+}
+
+.default {
+  color: var(--color-text-muted);
+}
+
+.inverted {
+  color: var(--color-mist-300);
+  border-color: color-mix(in srgb, var(--color-mist-100) 16%, transparent);
+}
+
+.accent {
+  color: var(--color-accent-ink);
+  background: color-mix(in srgb, var(--color-black) 10%, transparent);
+  border-color: color-mix(in srgb, var(--color-black) 25%, transparent);
+}
+
+.accent .dot {
+  background: var(--color-accent-ink);
+}
