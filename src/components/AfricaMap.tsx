@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 
 import styles from "./AfricaMap.module.css";
 
@@ -58,14 +59,26 @@ export function AfricaMap({ badge, title, subtitle, note, countries }: AfricaMap
             height={941}
             className={styles.image}
           />
-          {MARKER_POSITIONS.slice(0, countries.length).map((pos, index) => (
-            <span
-              key={countries[index]?.name ?? index}
-              className={styles.marker}
-              style={{ top: pos.top, left: pos.left, animationDelay: `${index * 0.45}s` }}
-            />
-          ))}
         </div>
+        {/*
+         * Markers are siblings of .imageFrame (not children) so the
+         * image's own overflow:hidden (used only to round its corners)
+         * never clips the expanding pulse rings near the map edges.
+         */}
+        {MARKER_POSITIONS.slice(0, countries.length).map((pos, index) => (
+          <span
+            key={countries[index]?.name ?? index}
+            className={styles.marker}
+            aria-hidden="true"
+            style={
+              {
+                top: pos.top,
+                left: pos.left,
+                "--marker-delay": `${index * 0.5}s`,
+              } as CSSProperties
+            }
+          />
+        ))}
       </div>
 
       <div className={styles.panel}>

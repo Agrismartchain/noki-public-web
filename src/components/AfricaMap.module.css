@@ -1,21 +1,19 @@
+/*
+ * Single-column, map-first layout: the map is the dominant visual of the
+ * section (per design brief, ~900-1200px wide on large screens), with the
+ * legend/country panel reading as a caption underneath rather than being
+ * squeezed into a side column.
+ */
 .wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: var(--space-8);
-  align-items: center;
-}
-
-@media (min-width: 900px) {
-  .wrapper {
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: var(--space-10);
-  }
 }
 
 .mapStage {
   position: relative;
   margin-inline: auto;
-  inline-size: min(100%, 26rem);
+  inline-size: min(100%, 75rem);
 }
 
 .badge {
@@ -50,16 +48,81 @@
   block-size: auto;
 }
 
+/*
+ * Marker = fixed bright core (never animated, per design brief: "un
+ * noyau fixe lumineux") + two expanding-and-fading rings drawn as
+ * ::before/::after pseudo-elements, each centered on the core via the
+ * classic inset:50% + transform:translate(-50%,-50%) trick (direction-
+ * agnostic at 50/50, so this centering is not an RTL concern). The
+ * per-country stagger is threaded through as a CSS custom property
+ * (--marker-delay) set inline per marker, since pseudo-elements cannot
+ * read a host element's own `animation-delay`.
+ */
 .marker {
+  --marker-delay: 0s;
   position: absolute;
-  inline-size: 0.85rem;
-  block-size: 0.85rem;
-  margin-inline-start: -0.425rem;
-  margin-block-start: -0.425rem;
+  z-index: 3;
+  inline-size: 0.65rem;
+  block-size: 0.65rem;
+  margin-inline-start: -0.325rem;
+  margin-block-start: -0.325rem;
   border-radius: var(--radius-full);
   background: var(--color-yellow);
-  box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-yellow) 25%, transparent);
-  animation: pulse-glow 3s ease-in-out infinite;
+  box-shadow: 0 0 10px 3px color-mix(in srgb, var(--color-yellow) 55%, transparent);
+  pointer-events: none;
+}
+
+.marker::before,
+.marker::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-electric-cyan);
+  opacity: 0;
+  animation: africa-ring 3.8s ease-out infinite;
+  animation-delay: var(--marker-delay);
+  pointer-events: none;
+}
+
+.marker::before {
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+}
+
+.marker::after {
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border-color: var(--color-electric-blue);
+  animation-duration: 4.4s;
+  animation-delay: calc(var(--marker-delay) + 0.35s);
+}
+
+@keyframes africa-ring {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.75;
+  }
+  70% {
+    opacity: 0.18;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .marker::before {
+    inline-size: 1.1rem;
+    block-size: 1.1rem;
+  }
+
+  .marker::after {
+    inline-size: 2rem;
+    block-size: 2rem;
+  }
 }
 
 .panel {
