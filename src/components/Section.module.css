@@ -1,0 +1,29 @@
+.section {
+  padding-block: var(--space-10);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: var(--space-12);
+  }
+}
+
+.default {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.muted {
+  background: var(--color-bg-muted);
+  color: var(--color-text);
+}
+
+.inverted {
+  background: var(--color-bg-inverted);
+  color: var(--color-text-inverted);
+}
+
+.accent {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}

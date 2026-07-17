@@ -1,0 +1,226 @@
+{
+  "meta": {
+    "title": "NOKI SERVICE — Plateforme opérationnelle pour le e-commerce COD",
+    "description": "NOKI SERVICE centralise commandes, confirmation, stock, préparation, livraison et reversements COD au sein d'une même plateforme opérationnelle."
+  },
+  "skipLink": "Aller au contenu principal",
+  "status": {
+    "available": "Disponible",
+    "inProgress": "En préparation"
+  },
+  "nav": {
+    "home": "Accueil",
+    "platform": "Plateforme",
+    "security": "Sécurité",
+    "faq": "FAQ",
+    "contact": "Demander une démonstration",
+    "menuOpen": "Ouvrir le menu",
+    "menuClose": "Fermer le menu",
+    "languageLabel": "Langue"
+  },
+  "hero": {
+    "eyebrow": "NOKI SERVICE",
+    "title": "Pilotez tout votre cycle COD depuis une seule plateforme.",
+    "subtitle": "Commandes, confirmation, stock, préparation, livraison, cash et reversements réunis dans une plateforme opérationnelle structurée.",
+    "ctaPrimary": "Découvrir la plateforme",
+    "ctaSecondary": "Demander une démonstration"
+  },
+  "problem": {
+    "eyebrow": "Le constat",
+    "title": "Les opérations COD restent fragmentées",
+    "intro": "La vente en paiement à la livraison mobilise souvent des feuilles de calcul, des appels manuels et plusieurs outils déconnectés, sans vue d'ensemble fiable sur une commande.",
+    "points": [
+      {
+        "title": "Des outils dispersés",
+        "description": "Commandes, stock et livraison sont suivis séparément, ce qui multiplie les ressaisies et les erreurs."
+      },
+      {
+        "title": "Une réconciliation du cash manuelle",
+        "description": "Le suivi des encaissements et des reversements aux vendeurs se fait souvent hors système, au prix de retards et d'approximations."
+      },
+      {
+        "title": "Un manque de visibilité en temps réel",
+        "description": "Sans vue unifiée sur le cycle de la commande, il est difficile d'anticiper les retards ou les incidents de livraison."
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "NOKI SERVICE",
+    "title": "Une plateforme opérationnelle conçue pour le e-commerce COD",
+    "body": "NOKI SERVICE centralise le suivi d'une commande, de sa création jusqu'à son encaissement, au sein d'une architecture structurée par organisation, par pays et par rôle. La plateforme est conçue pour donner aux équipes une source unique de vérité sur les opérations."
+  },
+  "cycle": {
+    "eyebrow": "Le cycle d'une commande",
+    "title": "Un cycle de commande structuré, de bout en bout",
+    "intro": "Chaque commande suit un cycle défini et traçable au sein de la plateforme.",
+    "steps": [
+      {
+        "title": "Commande reçue",
+        "description": "La commande est enregistrée et rattachée à une organisation et à un pays."
+      },
+      {
+        "title": "Confirmation",
+        "description": "La commande est vérifiée avant sa mise en préparation."
+      },
+      {
+        "title": "Préparation en entrepôt",
+        "description": "Les articles sont réservés, préparés puis conditionnés."
+      },
+      {
+        "title": "Livraison",
+        "description": "La commande est prise en charge et suivie jusqu'à sa remise."
+      },
+      {
+        "title": "Encaissement & reversement",
+        "description": "Le paiement à la livraison est enregistré, puis reversé au vendeur selon un processus de validation en plusieurs étapes."
+      }
+    ]
+  },
+  "modules": {
+    "eyebrow": "La plateforme",
+    "title": "Les modules principaux",
+    "intro": "Un socle opérationnel structuré autour des besoins réels du e-commerce en paiement à la livraison.",
+    "items": [
+      {
+        "title": "Commandes de bout en bout",
+        "description": "Cycle de vie complet de la commande, de sa création à sa livraison.",
+        "status": "available"
+      },
+      {
+        "title": "Confirmation des commandes",
+        "description": "File d'attente de confirmation avant mise en préparation.",
+        "status": "available"
+      },
+      {
+        "title": "Stock & entrepôts",
+        "description": "Suivi des entrepôts, des réservations et des niveaux de stock.",
+        "status": "available"
+      },
+      {
+        "title": "Préparation & expédition",
+        "description": "Étapes de préparation et de conditionnement avant remise au transporteur.",
+        "status": "available"
+      },
+      {
+        "title": "Suivi de livraison",
+        "description": "Suivi des tournées et des tentatives de livraison.",
+        "status": "available"
+      },
+      {
+        "title": "Paiement à la livraison (COD)",
+        "description": "Déclaration des encaissements réalisés à la livraison.",
+        "status": "available"
+      },
+      {
+        "title": "Reversements vendeurs",
+        "description": "Lots de reversement soumis à un processus de validation en plusieurs étapes.",
+        "status": "available"
+      },
+      {
+        "title": "Rôles et permissions",
+        "description": "Contrôle d'accès basé sur les rôles, par organisation et par pays.",
+        "status": "available"
+      },
+      {
+        "title": "Autorisation relationnelle avancée",
+        "description": "Moteur d'autorisation additionnel pour des règles d'accès plus fines.",
+        "status": "inProgress"
+      },
+      {
+        "title": "Automatisation supervisée",
+        "description": "Automatisation de tâches répétitives, toujours soumise à validation humaine avant toute action sensible.",
+        "status": "inProgress"
+      }
+    ]
+  },
+  "security": {
+    "eyebrow": "Confiance",
+    "title": "Sécurité et gouvernance",
+    "intro": "La plateforme est structurée autour de principes de contrôle d'accès et de traçabilité.",
+    "points": [
+      {
+        "title": "Rôles et permissions",
+        "description": "Chaque accès repose sur un rôle et un ensemble de permissions définis."
+      },
+      {
+        "title": "Accès contextualisé",
+        "description": "Les droits d'accès tiennent compte de l'organisation et du pays concernés."
+      },
+      {
+        "title": "Traçabilité des actions",
+        "description": "Les actions importantes sont journalisées avec leur contexte."
+      },
+      {
+        "title": "Validation en plusieurs étapes",
+        "description": "Les opérations financières sensibles suivent un processus de validation en plusieurs étapes avant exécution."
+      }
+    ]
+  },
+  "automation": {
+    "eyebrow": "Vision produit",
+    "title": "Automatisation supervisée",
+    "body": "NOKI SERVICE prévoit d'automatiser progressivement les tâches répétitives du cycle opérationnel, en gardant une validation humaine obligatoire avant toute action sensible.",
+    "disclaimer": "Cette automatisation est en préparation et sera introduite progressivement, sous supervision humaine."
+  },
+  "multiCountry": {
+    "eyebrow": "Portée",
+    "title": "Multi-pays et multi-devise",
+    "body": "L'architecture de NOKI SERVICE est conçue pour opérer dans plusieurs pays et plusieurs devises au sein d'une même organisation.",
+    "points": [
+      {
+        "title": "Multi-organisation",
+        "description": "Chaque organisation dispose de son propre périmètre de données."
+      },
+      {
+        "title": "Multi-pays",
+        "description": "La plateforme est conçue pour couvrir plusieurs pays d'opération."
+      },
+      {
+        "title": "Multi-devise",
+        "description": "Les montants sont rattachés à une devise par transaction."
+      }
+    ]
+  },
+  "demo": {
+    "eyebrow": "Aller plus loin",
+    "title": "Demander une démonstration",
+    "body": "Vous souhaitez en savoir plus sur NOKI SERVICE ?",
+    "note": "Le canal de demande de démonstration sera activé prochainement."
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "items": [
+      {
+        "question": "Qu'est-ce que NOKI SERVICE ?",
+        "answer": "NOKI SERVICE est une plateforme opérationnelle qui centralise la gestion des commandes en paiement à la livraison, de leur création jusqu'au reversement au vendeur."
+      },
+      {
+        "question": "La plateforme est-elle disponible aujourd'hui ?",
+        "answer": "Ce site présente la fondation de la plateforme. L'accès opérationnel et les modalités d'ouverture seront communiqués ultérieurement."
+      },
+      {
+        "question": "Proposez-vous un constructeur de boutique en ligne ?",
+        "answer": "Non. NOKI SERVICE n'est pas un constructeur de boutique et ne propose pas de fonctionnalité de type « Ma boutique »."
+      },
+      {
+        "question": "Comment vous contacter ?",
+        "answer": "Le canal de demande de démonstration et de contact sera activé prochainement."
+      },
+      {
+        "question": "Dans quels pays NOKI SERVICE opère-t-il ?",
+        "answer": "La plateforme est conçue pour opérer dans plusieurs pays. La liste des pays effectivement couverts sera communiquée ultérieurement."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Plateforme opérationnelle pour le e-commerce en paiement à la livraison.",
+    "platformHeading": "Plateforme",
+    "languageHeading": "Langue",
+    "copyright": "© {year} NOKI SERVICE. Tous droits réservés."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "body": "La page que vous recherchez n'existe pas ou plus.",
+    "backHome": "Retour à l'accueil"
+  }
+}

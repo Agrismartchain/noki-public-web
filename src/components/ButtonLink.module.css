@@ -1,0 +1,51 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding-block: var(--space-3);
+  padding-inline: var(--space-5);
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: var(--text-base);
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+/* Yellow background always paired with dark ink text (never white-on-yellow). */
+.primary {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  box-shadow: var(--shadow-sm);
+}
+
+.primary:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-black);
+}
+
+.secondary:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-text);
+  padding-inline: var(--space-2);
+}
+
+.ghost:hover {
+  color: var(--color-text-muted);
+}

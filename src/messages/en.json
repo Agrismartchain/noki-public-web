@@ -1,0 +1,226 @@
+{
+  "meta": {
+    "title": "NOKI SERVICE — Operating platform for COD e-commerce",
+    "description": "NOKI SERVICE centralizes orders, confirmation, stock, fulfillment, delivery and COD remittances in one operating platform."
+  },
+  "skipLink": "Skip to main content",
+  "status": {
+    "available": "Available",
+    "inProgress": "In progress"
+  },
+  "nav": {
+    "home": "Home",
+    "platform": "Platform",
+    "security": "Security",
+    "faq": "FAQ",
+    "contact": "Request a demo",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "languageLabel": "Language"
+  },
+  "hero": {
+    "eyebrow": "NOKI SERVICE",
+    "title": "Run your entire COD cycle from a single platform.",
+    "subtitle": "Orders, confirmation, stock, fulfillment, delivery, cash and remittances brought together in one structured operating platform.",
+    "ctaPrimary": "Discover the platform",
+    "ctaSecondary": "Request a demo"
+  },
+  "problem": {
+    "eyebrow": "The problem",
+    "title": "COD operations are still fragmented",
+    "intro": "Cash-on-delivery selling often relies on spreadsheets, manual calls and several disconnected tools, with no reliable overview of a single order.",
+    "points": [
+      {
+        "title": "Scattered tools",
+        "description": "Orders, stock and delivery are tracked separately, multiplying re-entry work and errors."
+      },
+      {
+        "title": "Manual cash reconciliation",
+        "description": "Tracking collections and seller remittances often happens outside any system, causing delays and approximations."
+      },
+      {
+        "title": "Limited real-time visibility",
+        "description": "Without a unified view of the order cycle, anticipating delays or delivery incidents is difficult."
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "NOKI SERVICE",
+    "title": "An operating platform built for COD e-commerce",
+    "body": "NOKI SERVICE centralizes order tracking, from creation to collection, within an architecture structured by organization, country and role. The platform is designed to give teams a single source of truth for operations."
+  },
+  "cycle": {
+    "eyebrow": "The order cycle",
+    "title": "A structured, end-to-end order cycle",
+    "intro": "Every order follows a defined, traceable cycle within the platform.",
+    "steps": [
+      {
+        "title": "Order received",
+        "description": "The order is registered and attached to an organization and a country."
+      },
+      {
+        "title": "Confirmation",
+        "description": "The order is verified before it enters fulfillment."
+      },
+      {
+        "title": "Warehouse fulfillment",
+        "description": "Items are reserved, picked and then packed."
+      },
+      {
+        "title": "Delivery",
+        "description": "The order is handed over and tracked through to delivery."
+      },
+      {
+        "title": "Collection & remittance",
+        "description": "The cash-on-delivery payment is recorded, then remitted to the seller through a multi-step validation process."
+      }
+    ]
+  },
+  "modules": {
+    "eyebrow": "The platform",
+    "title": "Core modules",
+    "intro": "An operating foundation structured around the real needs of cash-on-delivery e-commerce.",
+    "items": [
+      {
+        "title": "End-to-end orders",
+        "description": "Full order lifecycle, from creation to delivery.",
+        "status": "available"
+      },
+      {
+        "title": "Order confirmation",
+        "description": "Confirmation queue before fulfillment begins.",
+        "status": "available"
+      },
+      {
+        "title": "Stock & warehouses",
+        "description": "Tracking of warehouses, reservations and stock levels.",
+        "status": "available"
+      },
+      {
+        "title": "Fulfillment & dispatch",
+        "description": "Picking and packing steps before handover to the carrier.",
+        "status": "available"
+      },
+      {
+        "title": "Delivery tracking",
+        "description": "Tracking of delivery runs and delivery attempts.",
+        "status": "available"
+      },
+      {
+        "title": "Cash on delivery (COD)",
+        "description": "Recording of collections made at the point of delivery.",
+        "status": "available"
+      },
+      {
+        "title": "Seller remittances",
+        "description": "Remittance batches subject to a multi-step validation process.",
+        "status": "available"
+      },
+      {
+        "title": "Roles & permissions",
+        "description": "Role-based access control, scoped by organization and country.",
+        "status": "available"
+      },
+      {
+        "title": "Advanced relationship-based authorization",
+        "description": "An additional authorization engine for finer-grained access rules.",
+        "status": "inProgress"
+      },
+      {
+        "title": "Supervised automation",
+        "description": "Automation of repetitive tasks, always subject to human validation before any sensitive action.",
+        "status": "inProgress"
+      }
+    ]
+  },
+  "security": {
+    "eyebrow": "Trust",
+    "title": "Security and governance",
+    "intro": "The platform is structured around access control and traceability principles.",
+    "points": [
+      {
+        "title": "Roles & permissions",
+        "description": "Every access relies on a defined role and a defined set of permissions."
+      },
+      {
+        "title": "Contextual access",
+        "description": "Access rights take the relevant organization and country into account."
+      },
+      {
+        "title": "Traceability of actions",
+        "description": "Important actions are logged together with their context."
+      },
+      {
+        "title": "Multi-step validation",
+        "description": "Sensitive financial operations follow a multi-step validation process before execution."
+      }
+    ]
+  },
+  "automation": {
+    "eyebrow": "Product vision",
+    "title": "Supervised automation",
+    "body": "NOKI SERVICE plans to progressively automate repetitive tasks across the operating cycle, while keeping mandatory human validation before any sensitive action.",
+    "disclaimer": "This automation is in progress and will be introduced progressively, under human supervision."
+  },
+  "multiCountry": {
+    "eyebrow": "Reach",
+    "title": "Multi-country and multi-currency",
+    "body": "NOKI SERVICE's architecture is designed to operate across multiple countries and currencies within a single organization.",
+    "points": [
+      {
+        "title": "Multi-organization",
+        "description": "Each organization has its own data scope."
+      },
+      {
+        "title": "Multi-country",
+        "description": "The platform is designed to cover several countries of operation."
+      },
+      {
+        "title": "Multi-currency",
+        "description": "Amounts are attached to a currency per transaction."
+      }
+    ]
+  },
+  "demo": {
+    "eyebrow": "Go further",
+    "title": "Request a demo",
+    "body": "Want to learn more about NOKI SERVICE?",
+    "note": "The demo request channel will be activated soon."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "question": "What is NOKI SERVICE?",
+        "answer": "NOKI SERVICE is an operating platform that centralizes the management of cash-on-delivery orders, from creation through to remittance to the seller."
+      },
+      {
+        "question": "Is the platform available today?",
+        "answer": "This site presents the foundation of the platform. Operational access and rollout details will be communicated at a later stage."
+      },
+      {
+        "question": "Do you offer an online store builder?",
+        "answer": "No. NOKI SERVICE is not a store builder and does not offer a \"My store\" feature."
+      },
+      {
+        "question": "How can I contact you?",
+        "answer": "The demo request and contact channel will be activated soon."
+      },
+      {
+        "question": "Which countries does NOKI SERVICE operate in?",
+        "answer": "The platform is designed to operate across multiple countries. The list of countries actually covered will be communicated at a later stage."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Operating platform for cash-on-delivery e-commerce.",
+    "platformHeading": "Platform",
+    "languageHeading": "Language",
+    "copyright": "© {year} NOKI SERVICE. All rights reserved."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you are looking for does not exist or has moved.",
+    "backHome": "Back to home"
+  }
+}

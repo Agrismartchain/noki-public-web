@@ -1,0 +1,48 @@
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1 1 12rem;
+  min-inline-size: 0;
+}
+
+.marker {
+  display: flex;
+  align-items: center;
+}
+
+.markerNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-black);
+  color: var(--color-white);
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+.connector {
+  flex: 1 1 auto;
+  block-size: 2px;
+  background: var(--color-border);
+  margin-inline: var(--space-2);
+}
+
+.title {
+  font-size: var(--text-lg);
+}
+
+.description {
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+@media (max-width: 767px) {
+  .connector {
+    display: none;
+  }
+}
