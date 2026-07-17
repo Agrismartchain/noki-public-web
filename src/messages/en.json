@@ -20,7 +20,8 @@
   },
   "hero": {
     "eyebrow": "NOKI SERVICE",
-    "title": "Run your entire COD cycle from a single platform.",
+    "titleMain": "Run your entire COD cycle.",
+    "titleAccent": "From a single platform.",
     "subtitle": "Orders, confirmation, stock, fulfillment, delivery, cash and remittances brought together in one structured operating platform.",
     "ctaPrimary": "Discover the platform",
     "ctaSecondary": "Request a demo"
@@ -63,59 +64,83 @@
         "description": "The order is verified before it enters fulfillment."
       },
       {
-        "title": "Warehouse fulfillment",
-        "description": "Items are reserved, picked and then packed."
+        "title": "Stock reserved",
+        "description": "The order's items are reserved in the relevant warehouse."
+      },
+      {
+        "title": "Fulfillment",
+        "description": "Items are picked and packed for dispatch."
+      },
+      {
+        "title": "Dispatch",
+        "description": "The order is assigned to a run and handed over to the carrier."
       },
       {
         "title": "Delivery",
-        "description": "The order is handed over and tracked through to delivery."
+        "description": "The order is tracked through to hand-off with the customer."
       },
       {
-        "title": "Collection & remittance",
-        "description": "The cash-on-delivery payment is recorded, then remitted to the seller through a multi-step validation process."
+        "title": "COD reconciliation",
+        "description": "The cash-on-delivery payment is declared and reconciled with the order."
+      },
+      {
+        "title": "Remittance",
+        "description": "The amount is remitted to the seller through a multi-step validation process."
       }
     ]
+  },
+  "deliveryApp": {
+    "eyebrow": "Delivery app",
+    "title": "A dedicated delivery app, in preparation",
+    "body": "NOKI SERVICE is planning a mobile app designed for delivery agents, connected directly to the platform's order cycle.",
+    "status": "Delivery app in preparation",
+    "benefits": [
+      {
+        "title": "Assigned missions",
+        "description": "Each delivery agent sees the orders assigned to them."
+      },
+      {
+        "title": "Step-by-step tracking",
+        "description": "Delivery progress is updated at each step."
+      },
+      {
+        "title": "COD declaration",
+        "description": "The amount collected on delivery can be declared from the field."
+      },
+      {
+        "title": "Controlled synchronization",
+        "description": "Offline operation is planned, with controlled synchronization once reconnected."
+      }
+    ],
+    "chips": ["Mission assigned", "Status updated", "Return to confirm", "COD to declare"]
   },
   "modules": {
     "eyebrow": "The platform",
     "title": "Core modules",
     "intro": "An operating foundation structured around the real needs of cash-on-delivery e-commerce.",
-    "items": [
+    "lead": [
       {
-        "title": "End-to-end orders",
-        "description": "Full order lifecycle, from creation to delivery.",
+        "title": "Orders and confirmation",
+        "description": "Full order lifecycle, from creation through confirmation before fulfillment begins.",
         "status": "available"
       },
       {
-        "title": "Order confirmation",
-        "description": "Confirmation queue before fulfillment begins.",
+        "title": "Stock and fulfillment",
+        "description": "Warehouse tracking, item reservation and fulfillment steps before dispatch.",
         "status": "available"
       },
       {
-        "title": "Stock & warehouses",
-        "description": "Tracking of warehouses, reservations and stock levels.",
+        "title": "Delivery and dispatch",
+        "description": "Run assignment, delivery tracking and delivery attempts.",
         "status": "available"
       },
       {
-        "title": "Fulfillment & dispatch",
-        "description": "Picking and packing steps before handover to the carrier.",
+        "title": "COD and remittances",
+        "description": "Recording of collections made on delivery and remittance to sellers through multi-step validation.",
         "status": "available"
-      },
-      {
-        "title": "Delivery tracking",
-        "description": "Tracking of delivery runs and delivery attempts.",
-        "status": "available"
-      },
-      {
-        "title": "Cash on delivery (COD)",
-        "description": "Recording of collections made at the point of delivery.",
-        "status": "available"
-      },
-      {
-        "title": "Seller remittances",
-        "description": "Remittance batches subject to a multi-step validation process.",
-        "status": "available"
-      },
+      }
+    ],
+    "secondary": [
       {
         "title": "Roles & permissions",
         "description": "Role-based access control, scoped by organization and country.",
@@ -154,13 +179,47 @@
         "title": "Multi-step validation",
         "description": "Sensitive financial operations follow a multi-step validation process before execution."
       }
-    ]
+    ],
+    "panel": {
+      "rolesLabel": "Roles",
+      "permissionsLabel": "Permissions",
+      "scopeLabel": "Organizational scope",
+      "logLabel": "Action log",
+      "validationLabel": "Multi-step validation",
+      "serviceAccountLabel": "Limited service account",
+      "publicFormulation": "Access limited by role, organization and operational scope."
+    }
   },
   "automation": {
     "eyebrow": "Product vision",
     "title": "Supervised automation",
     "body": "NOKI SERVICE plans to progressively automate repetitive tasks across the operating cycle, while keeping mandatory human validation before any sensitive action.",
-    "disclaimer": "This automation is in progress and will be introduced progressively, under human supervision."
+    "disclaimer": "This automation is in preparation and will be introduced progressively, under human supervision.",
+    "workflow": [
+      { "label": "Order received", "status": "done" },
+      { "label": "Summary generated", "status": "done" },
+      { "label": "Prioritization", "status": "active" },
+      { "label": "Recommendation proposed", "status": "pending" },
+      { "label": "Human validation", "status": "human" }
+    ],
+    "workflowStatusLabels": {
+      "done": "Prepared",
+      "active": "In progress",
+      "pending": "Pending",
+      "human": "Human validation"
+    },
+    "panel": {
+      "eyebrow": "Supervision panel",
+      "summaryLabel": "Generated summary",
+      "summaryValue": "Summary of interactions related to the order, no automatic action taken.",
+      "recommendationLabel": "Proposed recommendation",
+      "recommendationValue": "Prioritize confirmation of this order.",
+      "confidenceLabel": "Confidence level",
+      "confidenceValue": "Moderate",
+      "transferLabel": "Transfer to a human",
+      "logLabel": "Action log",
+      "logEntries": ["Summary generated", "Recommendation proposed", "Awaiting human validation"]
+    }
   },
   "multiCountry": {
     "eyebrow": "Reach",
@@ -179,7 +238,21 @@
         "title": "Multi-currency",
         "description": "Amounts are attached to a currency per transaction."
       }
-    ]
+    ],
+    "map": {
+      "badge": "Targeted zones",
+      "title": "A platform designed for several African markets.",
+      "subtitle": "Countries, currencies, organizations, warehouses and zones can be configured to match each deployment's operational needs.",
+      "note": "These markets represent zones targeted by the platform's architecture, not a list of countries already in operation.",
+      "countries": [
+        { "name": "Côte d'Ivoire" },
+        { "name": "Senegal" },
+        { "name": "Mali" },
+        { "name": "Cameroon" },
+        { "name": "Gabon" },
+        { "name": "Congo" }
+      ]
+    }
   },
   "demo": {
     "eyebrow": "Go further",

@@ -81,7 +81,44 @@
 .panelBody {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-4);
+}
+
+.miniTimeline {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  block-size: 1.1rem;
+}
+
+.timelineTrack {
+  position: absolute;
+  inset-inline: 2px;
+  inset-block-start: 50%;
+  block-size: 2px;
+  transform: translateY(-50%);
+  background: var(--gradient-line);
+  opacity: 0.35;
+}
+
+.timelineNode {
+  position: relative;
+  z-index: 1;
+  inline-size: 0.6rem;
+  block-size: 0.6rem;
+  border-radius: var(--radius-full);
+  background: var(--color-navy-700);
+  border: 1px solid var(--color-border-strong);
+}
+
+.timelineNode[data-active="true"] {
+  inline-size: 0.85rem;
+  block-size: 0.85rem;
+  background: var(--color-electric-cyan);
+  border-color: var(--color-electric-cyan);
+  box-shadow: var(--shadow-glow-cyan);
+  animation: pulse-glow 2.6s ease-in-out infinite;
 }
 
 .skeletonRow {
@@ -201,25 +238,31 @@
   }
 
   .chip[data-position="0"] {
-    inset-block-start: 4%;
-    inset-inline-start: -14%;
+    inset-block-start: 2%;
+    inset-inline-start: -16%;
   }
 
   .chip[data-position="1"] {
-    inset-block-start: -6%;
-    inset-inline-end: -8%;
-    animation-delay: 0.6s;
+    inset-block-start: -8%;
+    inset-inline-end: -10%;
+    animation-delay: 0.5s;
   }
 
   .chip[data-position="2"] {
-    inset-block-end: 10%;
-    inset-inline-start: -18%;
-    animation-delay: 1.2s;
+    inset-block-start: 42%;
+    inset-inline-end: -22%;
+    animation-delay: 1s;
   }
 
   .chip[data-position="3"] {
-    inset-block-end: -6%;
-    inset-inline-end: -4%;
-    animation-delay: 1.8s;
+    inset-block-end: -8%;
+    inset-inline-start: 20%;
+    animation-delay: 1.5s;
+  }
+
+  .chip[data-position="4"] {
+    inset-block-end: 6%;
+    inset-inline-start: -20%;
+    animation-delay: 2s;
   }
 }

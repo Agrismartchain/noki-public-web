@@ -20,7 +20,8 @@
   },
   "hero": {
     "eyebrow": "NOKI SERVICE",
-    "title": "Pilotez tout votre cycle COD depuis une seule plateforme.",
+    "titleMain": "Pilotez tout votre cycle COD.",
+    "titleAccent": "D'une seule plateforme.",
     "subtitle": "Commandes, confirmation, stock, préparation, livraison, cash et reversements réunis dans une plateforme opérationnelle structurée.",
     "ctaPrimary": "Découvrir la plateforme",
     "ctaSecondary": "Demander une démonstration"
@@ -63,59 +64,83 @@
         "description": "La commande est vérifiée avant sa mise en préparation."
       },
       {
-        "title": "Préparation en entrepôt",
-        "description": "Les articles sont réservés, préparés puis conditionnés."
+        "title": "Stock réservé",
+        "description": "Les articles de la commande sont réservés dans l'entrepôt concerné."
+      },
+      {
+        "title": "Préparation",
+        "description": "Les articles sont préparés puis conditionnés pour l'expédition."
+      },
+      {
+        "title": "Dispatch",
+        "description": "La commande est affectée à une tournée et remise au transporteur."
       },
       {
         "title": "Livraison",
-        "description": "La commande est prise en charge et suivie jusqu'à sa remise."
+        "description": "La commande est suivie jusqu'à sa remise au client."
       },
       {
-        "title": "Encaissement & reversement",
-        "description": "Le paiement à la livraison est enregistré, puis reversé au vendeur selon un processus de validation en plusieurs étapes."
+        "title": "Rapprochement COD",
+        "description": "Le paiement à la livraison est déclaré et rapproché avec la commande."
+      },
+      {
+        "title": "Reversement",
+        "description": "Le montant est reversé au vendeur selon un processus de validation en plusieurs étapes."
       }
     ]
+  },
+  "deliveryApp": {
+    "eyebrow": "Application livreur",
+    "title": "Une application dédiée aux livreurs, en préparation",
+    "body": "NOKI SERVICE prévoit une application mobile pensée pour les livreurs, connectée directement au cycle de commande de la plateforme.",
+    "status": "Application livreur en préparation",
+    "benefits": [
+      {
+        "title": "Missions assignées",
+        "description": "Chaque livreur retrouve les commandes qui lui sont affectées."
+      },
+      {
+        "title": "Suivi des étapes",
+        "description": "La progression d'une livraison est mise à jour à chaque étape."
+      },
+      {
+        "title": "Déclaration du COD",
+        "description": "Le montant encaissé à la livraison peut être déclaré depuis le terrain."
+      },
+      {
+        "title": "Synchronisation contrôlée",
+        "description": "Un fonctionnement hors ligne est prévu, avec synchronisation contrôlée dès que le réseau redevient disponible."
+      }
+    ],
+    "chips": ["Mission assignée", "Statut mis à jour", "Retour à confirmer", "COD à déclarer"]
   },
   "modules": {
     "eyebrow": "La plateforme",
     "title": "Les modules principaux",
     "intro": "Un socle opérationnel structuré autour des besoins réels du e-commerce en paiement à la livraison.",
-    "items": [
+    "lead": [
       {
-        "title": "Commandes de bout en bout",
-        "description": "Cycle de vie complet de la commande, de sa création à sa livraison.",
+        "title": "Commandes et confirmation",
+        "description": "Cycle de vie complet de la commande, de sa création jusqu'à sa confirmation avant mise en préparation.",
         "status": "available"
       },
       {
-        "title": "Confirmation des commandes",
-        "description": "File d'attente de confirmation avant mise en préparation.",
+        "title": "Stock et préparation",
+        "description": "Suivi des entrepôts, réservation des articles et étapes de préparation avant expédition.",
         "status": "available"
       },
       {
-        "title": "Stock & entrepôts",
-        "description": "Suivi des entrepôts, des réservations et des niveaux de stock.",
+        "title": "Livraison et dispatch",
+        "description": "Affectation des tournées, suivi des livraisons et des tentatives de remise.",
         "status": "available"
       },
       {
-        "title": "Préparation & expédition",
-        "description": "Étapes de préparation et de conditionnement avant remise au transporteur.",
+        "title": "COD et reversements",
+        "description": "Déclaration des encaissements à la livraison et reversement aux vendeurs via une validation en plusieurs étapes.",
         "status": "available"
-      },
-      {
-        "title": "Suivi de livraison",
-        "description": "Suivi des tournées et des tentatives de livraison.",
-        "status": "available"
-      },
-      {
-        "title": "Paiement à la livraison (COD)",
-        "description": "Déclaration des encaissements réalisés à la livraison.",
-        "status": "available"
-      },
-      {
-        "title": "Reversements vendeurs",
-        "description": "Lots de reversement soumis à un processus de validation en plusieurs étapes.",
-        "status": "available"
-      },
+      }
+    ],
+    "secondary": [
       {
         "title": "Rôles et permissions",
         "description": "Contrôle d'accès basé sur les rôles, par organisation et par pays.",
@@ -154,13 +179,47 @@
         "title": "Validation en plusieurs étapes",
         "description": "Les opérations financières sensibles suivent un processus de validation en plusieurs étapes avant exécution."
       }
-    ]
+    ],
+    "panel": {
+      "rolesLabel": "Rôles",
+      "permissionsLabel": "Permissions",
+      "scopeLabel": "Périmètre organisationnel",
+      "logLabel": "Journal d'actions",
+      "validationLabel": "Validation en plusieurs étapes",
+      "serviceAccountLabel": "Compte de service limité",
+      "publicFormulation": "Des accès limités par rôle, organisation et périmètre opérationnel."
+    }
   },
   "automation": {
     "eyebrow": "Vision produit",
     "title": "Automatisation supervisée",
     "body": "NOKI SERVICE prévoit d'automatiser progressivement les tâches répétitives du cycle opérationnel, en gardant une validation humaine obligatoire avant toute action sensible.",
-    "disclaimer": "Cette automatisation est en préparation et sera introduite progressivement, sous supervision humaine."
+    "disclaimer": "Cette automatisation est en préparation et sera introduite progressivement, sous supervision humaine.",
+    "workflow": [
+      { "label": "Réception de la commande", "status": "done" },
+      { "label": "Résumé généré", "status": "done" },
+      { "label": "Priorisation", "status": "active" },
+      { "label": "Recommandation proposée", "status": "pending" },
+      { "label": "Validation humaine", "status": "human" }
+    ],
+    "workflowStatusLabels": {
+      "done": "Préparé",
+      "active": "En cours",
+      "pending": "En attente",
+      "human": "Validation humaine"
+    },
+    "panel": {
+      "eyebrow": "Panneau de supervision",
+      "summaryLabel": "Résumé généré",
+      "summaryValue": "Synthèse des échanges liés à la commande, sans action automatique.",
+      "recommendationLabel": "Recommandation proposée",
+      "recommendationValue": "Prioriser la confirmation de cette commande.",
+      "confidenceLabel": "Niveau de confiance",
+      "confidenceValue": "Modéré",
+      "transferLabel": "Transférer à un humain",
+      "logLabel": "Journal d'actions",
+      "logEntries": ["Résumé généré", "Recommandation proposée", "En attente de validation humaine"]
+    }
   },
   "multiCountry": {
     "eyebrow": "Portée",
@@ -179,7 +238,21 @@
         "title": "Multi-devise",
         "description": "Les montants sont rattachés à une devise par transaction."
       }
-    ]
+    ],
+    "map": {
+      "badge": "Zones ciblées",
+      "title": "Une plateforme pensée pour plusieurs marchés africains.",
+      "subtitle": "Pays, devises, organisations, entrepôts et zones peuvent être configurés selon les besoins opérationnels de chaque déploiement.",
+      "note": "Ces marchés représentent des zones ciblées par l'architecture de la plateforme, et non une liste de pays en exploitation active.",
+      "countries": [
+        { "name": "Côte d'Ivoire" },
+        { "name": "Sénégal" },
+        { "name": "Mali" },
+        { "name": "Cameroun" },
+        { "name": "Gabon" },
+        { "name": "Congo" }
+      ]
+    }
   },
   "demo": {
     "eyebrow": "Aller plus loin",

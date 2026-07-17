@@ -1,0 +1,105 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: var(--gradient-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  isolation: isolate;
+  block-size: 100%;
+  transition: transform var(--transition-base) var(--ease-premium),
+    border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+.glow {
+  position: absolute;
+  inset-block-start: -30%;
+  inset-inline-end: -20%;
+  inline-size: 14rem;
+  block-size: 14rem;
+  border-radius: var(--radius-full);
+  background: var(--gradient-glow-blue);
+  filter: blur(64px);
+  opacity: 0.4;
+  z-index: -1;
+  animation: pulse-glow 8s ease-in-out infinite;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.iconTile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 3.25rem;
+  block-size: 3.25rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    155deg,
+    color-mix(in srgb, var(--color-electric-blue) 24%, transparent),
+    color-mix(in srgb, var(--color-electric-cyan) 16%, transparent)
+  );
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-electric-cyan);
+  font-size: 1.6rem;
+}
+
+.title {
+  font-size: var(--text-xl);
+  margin: 0;
+}
+
+.description {
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+.miniUi {
+  margin-block-start: var(--space-2);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-mist-100) 4%, transparent);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.miniRow {
+  block-size: 0.55rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--color-mist-100) 20%, transparent),
+    color-mix(in srgb, var(--color-mist-100) 6%, transparent)
+  );
+}
+
+.miniFooter {
+  display: flex;
+  gap: var(--space-2);
+  padding-block-start: var(--space-2);
+}
+
+.miniChip {
+  inline-size: 2.25rem;
+  block-size: 1.35rem;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-mist-100) 8%, transparent);
+  border: 1px solid var(--color-border);
+}

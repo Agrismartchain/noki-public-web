@@ -1,0 +1,147 @@
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8) var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .timeline {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.markerRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.markerRow::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 100%;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+  inline-size: var(--space-5);
+  block-size: 2px;
+  background: var(--gradient-line);
+  opacity: 0.4;
+}
+
+.node[data-last="true"] .markerRow::after {
+  display: none;
+}
+
+.markerCircle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background: var(--gradient-surface);
+  border: 1px solid var(--color-border-strong);
+  box-shadow: var(--shadow-glow-cyan);
+  transition: transform var(--transition-base) var(--ease-premium);
+}
+
+.markerIcon {
+  display: inline-flex;
+  font-size: 1.2rem;
+  color: var(--color-electric-cyan);
+}
+
+.markerNumber {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  letter-spacing: 0.04em;
+}
+
+.node[data-active="true"] .markerCircle {
+  border-color: var(--color-electric-cyan);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-electric-cyan) 18%, transparent),
+    var(--shadow-glow-cyan);
+  animation: pulse-glow 2.6s ease-in-out infinite;
+}
+
+.node[data-active="true"] .markerNumber {
+  color: var(--color-electric-cyan);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: var(--gradient-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-base) var(--ease-premium), border-color var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-border-strong);
+}
+
+.title {
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin: 0;
+}
+
+.description {
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 767px) {
+  .markerRow::after {
+    display: none;
+  }
+
+  .node:not([data-last="true"])::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 1.35rem;
+    inset-block-start: 2.75rem;
+    block-size: calc(100% - 2rem);
+    inline-size: 2px;
+    background: var(--gradient-line);
+    opacity: 0.3;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .node:nth-child(2n) .markerRow::after {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .node:nth-child(4n) .markerRow::after {
+    display: none;
+  }
+}

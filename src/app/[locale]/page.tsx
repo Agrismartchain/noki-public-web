@@ -3,12 +3,17 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import type { ReactElement } from "react";
 
+import { AfricaMap } from "@/components/AfricaMap";
+import { AiAssistancePanel } from "@/components/AiAssistancePanel";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Container";
+import { CycleTimeline } from "@/components/CycleTimeline";
 import { DecorPanel } from "@/components/DecorPanel";
+import { DeliveryAppPanel } from "@/components/DeliveryAppPanel";
 import { Eyebrow } from "@/components/Eyebrow";
 import { FaqItem } from "@/components/FaqItem";
 import { FeatureCard } from "@/components/FeatureCard";
+import { GovernancePanel } from "@/components/GovernancePanel";
 import { HeroIllustration } from "@/components/HeroIllustration";
 import {
   IconArrowRight,
@@ -18,7 +23,6 @@ import {
   IconCheck,
   IconCoins,
   IconEye,
-  IconFileText,
   IconGlobe,
   IconGrid,
   IconKey,
@@ -29,7 +33,7 @@ import {
   IconWallet,
   type IconProps,
 } from "@/components/icons/Icon";
-import { ProcessStep } from "@/components/ProcessStep";
+import { ModuleCard } from "@/components/ModuleCard";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
 import { StatusBadge } from "@/components/StatusBadge";
@@ -51,23 +55,22 @@ interface FaqEntry {
   answer: string;
 }
 
+interface WorkflowStepRaw {
+  label: string;
+  status: "done" | "active" | "pending" | "human";
+}
+
+interface CountryRaw {
+  name: string;
+}
+
 const problemIcons = [IconGrid, IconRefresh, IconEye];
-const cycleIcons = [IconBox, IconCheck, IconGrid, IconTruck, IconWallet];
-const moduleIcons = [
-  IconBox,
-  IconCheck,
-  IconGrid,
-  IconTruck,
-  IconMapPin,
-  IconWallet,
-  IconCoins,
-  IconKey,
-  IconShield,
-  IconBolt,
-];
-const securityIcons = [IconKey, IconMapPin, IconFileText, IconShield];
-const countryIcons = [IconBuilding, IconGlobe, IconCoins];
-const heroStageIcons = [IconBox, IconCheck, IconTruck, IconWallet];
+const cycleIcons = [IconBox, IconCheck, IconBox, IconGrid, IconTruck, IconTruck, IconCoins, IconWallet];
+const deliveryIcons = [IconMapPin, IconRefresh, IconWallet, IconBolt];
+const leadModuleIcons = [IconBox, IconGrid, IconTruck, IconWallet];
+const secondaryModuleIcons = [IconKey, IconShield, IconBolt];
+const securityIcons = [IconKey, IconMapPin, IconBuilding, IconShield];
+const heroStageIcons = [IconCheck, IconBox, IconTruck, IconCoins, IconShield];
 
 function iconAt(list: ((props: IconProps) => ReactElement)[], index: number) {
   const Icon = list[index] ?? list[0];
@@ -90,17 +93,29 @@ export default async function HomePage({
 
   const problemPoints = t.raw("problem.points") as TitledPoint[];
   const cycleSteps = t.raw("cycle.steps") as TitledPoint[];
-  const moduleItems = t.raw("modules.items") as ModuleItem[];
+  const deliveryBenefits = t.raw("deliveryApp.benefits") as TitledPoint[];
+  const deliveryChips = t.raw("deliveryApp.chips") as string[];
+  const leadModules = t.raw("modules.lead") as ModuleItem[];
+  const secondaryModules = t.raw("modules.secondary") as ModuleItem[];
   const securityPoints = t.raw("security.points") as TitledPoint[];
+  const automationWorkflow = t.raw("automation.workflow") as WorkflowStepRaw[];
+  const automationLogEntries = t.raw("automation.panel.logEntries") as string[];
   const countryPoints = t.raw("multiCountry.points") as TitledPoint[];
+  const countries = t.raw("multiCountry.map.countries") as CountryRaw[];
   const faqItems = t.raw("faq.items") as FaqEntry[];
 
-  const heroStages = [cycleSteps[0], cycleSteps[1], cycleSteps[3], cycleSteps[4]]
-    .filter((step): step is TitledPoint => Boolean(step))
-    .map((step, index) => ({
-      title: step.title,
-      icon: iconAt(heroStageIcons, index),
-    }));
+  const heroStageSource = [
+    cycleSteps[1],
+    cycleSteps[2],
+    cycleSteps[5],
+    cycleSteps[6],
+    automationWorkflow[4] ? { title: automationWorkflow[4].label } : undefined,
+  ].filter((step): step is { title: string } => Boolean(step));
+
+  const heroStages = heroStageSource.map((step, index) => ({
+    title: step.title,
+    icon: iconAt(heroStageIcons, index),
+  }));
 
   const heroPills = [
     { label: t("problem.eyebrow"), icon: <IconEye /> },
@@ -108,6 +123,13 @@ export default async function HomePage({
     { label: t("security.eyebrow"), icon: <IconShield /> },
     { label: t("multiCountry.eyebrow"), icon: <IconGlobe /> },
   ];
+
+  const automationStatusLabels = {
+    done: t("automation.workflowStatusLabels.done"),
+    active: t("automation.workflowStatusLabels.active"),
+    pending: t("automation.workflowStatusLabels.pending"),
+    human: t("automation.workflowStatusLabels.human"),
+  };
 
   return (
     <>
@@ -118,7 +140,8 @@ export default async function HomePage({
             <div className={styles.heroContent}>
               <Eyebrow>{t("hero.eyebrow")}</Eyebrow>
               <h1 id="hero-title" className={styles.heroTitle}>
-                {t("hero.title")}
+                <span className={styles.heroTitleMain}>{t("hero.titleMain")}</span>
+                <span className={styles.heroTitleAccent}>{t("hero.titleAccent")}</span>
               </h1>
               <p className={styles.heroSubtitle}>{t("hero.subtitle")}</p>
               <div className={styles.heroActions}>
@@ -192,7 +215,7 @@ export default async function HomePage({
         </Container>
       </Section>
 
-      {/* 5. Cycle simplifié d'une commande */}
+      {/* 5. Cycle simplifié d'une commande — grand workflow connecté */}
       <Section tone="muted" ariaLabelledBy="cycle-title">
         <Container>
           <Reveal>
@@ -204,23 +227,53 @@ export default async function HomePage({
               <p className={styles.sectionIntro}>{t("cycle.intro")}</p>
             </header>
           </Reveal>
-          <ol className={styles.processList}>
-            {cycleSteps.map((step, index) => (
-              <Reveal key={step.title} delayMs={index * 70}>
-                <ProcessStep
-                  index={index + 1}
-                  title={step.title}
-                  description={step.description}
-                  icon={iconAt(cycleIcons, index)}
-                  isLast={index === cycleSteps.length - 1}
-                />
-              </Reveal>
-            ))}
-          </ol>
+          <Reveal delayMs={80}>
+            <CycleTimeline
+              steps={cycleSteps.map((step, index) => ({
+                title: step.title,
+                description: step.description,
+                icon: iconAt(cycleIcons, index),
+              }))}
+            />
+          </Reveal>
         </Container>
       </Section>
 
-      {/* 6. Modules principaux */}
+      {/* 6. Application livreur (en préparation) */}
+      <Section ariaLabelledBy="deliveryApp-title">
+        <Container>
+          <div className={styles.splitLayout}>
+            <Reveal className={styles.splitText}>
+              <Eyebrow>{t("deliveryApp.eyebrow")}</Eyebrow>
+              <h2 id="deliveryApp-title" className={styles.sectionTitle}>
+                {t("deliveryApp.title")}
+              </h2>
+              <p className={styles.splitBody}>{t("deliveryApp.body")}</p>
+              <div className={styles.benefitsList}>
+                {deliveryBenefits.map((benefit, index) => (
+                  <div key={benefit.title} className={styles.benefitItem}>
+                    <span className={styles.benefitIcon} aria-hidden="true">
+                      {iconAt(deliveryIcons, index)}
+                    </span>
+                    <div>
+                      <p className={styles.benefitTitle}>{benefit.title}</p>
+                      <p className={styles.benefitDescription}>{benefit.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className={styles.demoNote} role="status">
+                {t("deliveryApp.status")}
+              </p>
+            </Reveal>
+            <Reveal className={styles.splitVisual} delayMs={100}>
+              <DeliveryAppPanel chips={deliveryChips} />
+            </Reveal>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 7. Modules principaux — grands modules + modules secondaires */}
       <Section id="modules" ariaLabelledBy="modules-title">
         <Container>
           <Reveal>
@@ -232,13 +285,25 @@ export default async function HomePage({
               <p className={styles.sectionIntro}>{t("modules.intro")}</p>
             </header>
           </Reveal>
-          <div className={styles.cardGrid}>
-            {moduleItems.map((item, index) => (
-              <Reveal key={item.title} delayMs={(index % 3) * 70}>
+          <div className={styles.leadModuleGrid}>
+            {leadModules.map((item, index) => (
+              <Reveal key={item.title} delayMs={index * 80}>
+                <ModuleCard
+                  title={item.title}
+                  description={item.description}
+                  icon={iconAt(leadModuleIcons, index)}
+                  badge={<StatusBadge status={item.status} label={tStatus(item.status)} />}
+                />
+              </Reveal>
+            ))}
+          </div>
+          <div className={styles.secondaryModuleGrid}>
+            {secondaryModules.map((item, index) => (
+              <Reveal key={item.title} delayMs={index * 70}>
                 <FeatureCard
                   title={item.title}
                   description={item.description}
-                  icon={iconAt(moduleIcons, index)}
+                  icon={iconAt(secondaryModuleIcons, index)}
                   badge={<StatusBadge status={item.status} label={tStatus(item.status)} />}
                 />
               </Reveal>
@@ -247,7 +312,7 @@ export default async function HomePage({
         </Container>
       </Section>
 
-      {/* 7. Sécurité et gouvernance */}
+      {/* 8. Sécurité et gouvernance — panneau de contrôle premium */}
       <Section id="security" tone="inverted" ariaLabelledBy="security-title">
         <Container>
           <Reveal>
@@ -259,7 +324,18 @@ export default async function HomePage({
               <p className={styles.sectionIntro}>{t("security.intro")}</p>
             </header>
           </Reveal>
-          <div className={styles.cardGrid}>
+          <Reveal delayMs={80}>
+            <GovernancePanel
+              publicFormulation={t("security.panel.publicFormulation")}
+              rolesLabel={t("security.panel.rolesLabel")}
+              permissionsLabel={t("security.panel.permissionsLabel")}
+              scopeLabel={t("security.panel.scopeLabel")}
+              serviceAccountLabel={t("security.panel.serviceAccountLabel")}
+              validationLabel={t("security.panel.validationLabel")}
+              logLabel={t("security.panel.logLabel")}
+            />
+          </Reveal>
+          <div className={`${styles.cardGrid} ${styles.securitySupportGrid}`}>
             {securityPoints.map((point, index) => (
               <Reveal key={point.title} delayMs={index * 70}>
                 <FeatureCard
@@ -273,26 +349,41 @@ export default async function HomePage({
         </Container>
       </Section>
 
-      {/* 8. Automatisation supervisée */}
+      {/* 9. Automatisation supervisée — bloc IA d'assistance */}
       <Section ariaLabelledBy="automation-title">
         <Container>
-          <div className={styles.splitLayout}>
-            <Reveal className={styles.splitText}>
+          <Reveal>
+            <header className={styles.sectionHeader}>
               <Eyebrow>{t("automation.eyebrow")}</Eyebrow>
               <h2 id="automation-title" className={styles.sectionTitle}>
                 {t("automation.title")}
               </h2>
-              <p className={styles.splitBody}>{t("automation.body")}</p>
+              <p className={styles.sectionIntro}>{t("automation.body")}</p>
               <p className={styles.disclaimer}>{t("automation.disclaimer")}</p>
-            </Reveal>
-            <Reveal className={styles.splitVisual} delayMs={100}>
-              <DecorPanel tone="cyan" />
-            </Reveal>
-          </div>
+            </header>
+          </Reveal>
+          <Reveal delayMs={80}>
+            <AiAssistancePanel
+              workflow={automationWorkflow}
+              statusLabels={automationStatusLabels}
+              panel={{
+                eyebrow: t("automation.panel.eyebrow"),
+                summaryLabel: t("automation.panel.summaryLabel"),
+                summaryValue: t("automation.panel.summaryValue"),
+                recommendationLabel: t("automation.panel.recommendationLabel"),
+                recommendationValue: t("automation.panel.recommendationValue"),
+                confidenceLabel: t("automation.panel.confidenceLabel"),
+                confidenceValue: t("automation.panel.confidenceValue"),
+                transferLabel: t("automation.panel.transferLabel"),
+                logLabel: t("automation.panel.logLabel"),
+                logEntries: automationLogEntries,
+              }}
+            />
+          </Reveal>
         </Container>
       </Section>
 
-      {/* 9. Multi-pays et multi-devise */}
+      {/* 10. Multi-pays et multi-devise — carte Afrique animée */}
       <Section tone="muted" ariaLabelledBy="multiCountry-title">
         <Container>
           <Reveal>
@@ -302,23 +393,28 @@ export default async function HomePage({
                 {t("multiCountry.title")}
               </h2>
               <p className={styles.sectionIntro}>{t("multiCountry.body")}</p>
+              <ul className={styles.miniBadgeRow}>
+                {countryPoints.map((point) => (
+                  <li key={point.title} className={styles.miniBadge}>
+                    {point.title}
+                  </li>
+                ))}
+              </ul>
             </header>
           </Reveal>
-          <div className={styles.cardGrid}>
-            {countryPoints.map((point, index) => (
-              <Reveal key={point.title} delayMs={index * 70}>
-                <FeatureCard
-                  title={point.title}
-                  description={point.description}
-                  icon={iconAt(countryIcons, index)}
-                />
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delayMs={80}>
+            <AfricaMap
+              badge={t("multiCountry.map.badge")}
+              title={t("multiCountry.map.title")}
+              subtitle={t("multiCountry.map.subtitle")}
+              note={t("multiCountry.map.note")}
+              countries={countries}
+            />
+          </Reveal>
         </Container>
       </Section>
 
-      {/* 10. CTA démonstration honnête */}
+      {/* 11. CTA démonstration honnête */}
       <Section id="demo" tone="accent" ariaLabelledBy="demo-title">
         <Container>
           <Reveal>
@@ -336,7 +432,7 @@ export default async function HomePage({
         </Container>
       </Section>
 
-      {/* 11. FAQ */}
+      {/* 12. FAQ */}
       <Section id="faq" ariaLabelledBy="faq-title">
         <Container>
           <Reveal>

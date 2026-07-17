@@ -128,6 +128,13 @@ describe("no forbidden capability claims in message dictionaries", () => {
     "otp",
     "mfa",
     "n8n",
+    "app store",
+    "play store",
+    "google play",
+    "présence actuelle",
+    "nos agences",
+    "couverture active",
+    "pays déjà opérés",
   ];
 
   it("fr/en/ar dictionaries never mention unproven capabilities", () => {

@@ -1,0 +1,235 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .wrapper {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* ---------- Workflow column ---------- */
+
+.workflowList {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: var(--gradient-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.workflowItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-block: var(--space-2);
+}
+
+.workflowItem:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0.3rem;
+  inset-block-start: 100%;
+  block-size: var(--space-4);
+  inline-size: 2px;
+  background: var(--color-border-strong);
+}
+
+.workflowDot {
+  inline-size: 0.65rem;
+  block-size: 0.65rem;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  background: var(--color-border-strong);
+}
+
+.workflowItem[data-status="done"] .workflowDot {
+  background: var(--color-electric-cyan);
+}
+
+.workflowItem[data-status="active"] .workflowDot {
+  background: var(--color-electric-cyan);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-electric-cyan) 22%, transparent);
+  animation: pulse-glow 2.4s ease-in-out infinite;
+}
+
+.workflowItem[data-status="human"] .workflowDot {
+  background: var(--color-yellow);
+}
+
+.workflowLabel {
+  flex: 1;
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+.workflowBadge {
+  flex-shrink: 0;
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text-faint);
+}
+
+.workflowBadge[data-status="done"] {
+  color: var(--color-electric-cyan);
+  border-color: color-mix(in srgb, var(--color-electric-cyan) 35%, transparent);
+  background: color-mix(in srgb, var(--color-electric-cyan) 12%, transparent);
+}
+
+.workflowBadge[data-status="active"] {
+  color: var(--color-text);
+  border-style: dashed;
+}
+
+.workflowBadge[data-status="human"] {
+  color: var(--color-accent-ink);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* ---------- Supervision panel column ---------- */
+
+.supervisionCol {
+  position: relative;
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: var(--gradient-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.supervisionCol::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  block-size: 3px;
+  background: var(--gradient-line);
+}
+
+.glow {
+  position: absolute;
+  inset-block-start: -25%;
+  inset-inline-end: -15%;
+  inline-size: 14rem;
+  block-size: 14rem;
+  border-radius: var(--radius-full);
+  background: var(--gradient-glow-blue);
+  filter: blur(64px);
+  opacity: 0.35;
+  z-index: -1;
+  animation: pulse-glow 8s ease-in-out infinite;
+}
+
+.panelEyebrow {
+  margin: 0;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--color-electric-cyan);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.fieldLabel {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-faint);
+  font-weight: 700;
+}
+
+.fieldValue {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+  font-size: var(--text-sm);
+}
+
+.confidenceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: var(--space-2);
+  border-block: 1px solid var(--color-border);
+}
+
+.confidencePill {
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--color-electric-cyan) 14%, transparent);
+  color: var(--color-electric-cyan);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.transferBadge {
+  align-self: flex-start;
+  padding-block: var(--space-2);
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  box-shadow: var(--shadow-glow-yellow);
+}
+
+.logSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.logList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.logList li {
+  position: relative;
+  padding-inline-start: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.logList li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.5em;
+  inline-size: 6px;
+  block-size: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-border-strong);
+}

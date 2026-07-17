@@ -14,9 +14,14 @@ interface HeroIllustrationProps {
 /**
  * Abstract, illustrative composition of a generic operational flow board —
  * not a screenshot of the real admin, and no invented metrics (bars/ring
- * are decorative shapes only, never labelled with numbers).
+ * and the mini timeline are decorative shapes only, never labelled with
+ * numbers). `stages` doubles as the floating annotated cards and the source
+ * for the compact in-panel timeline dots (same five conceptual moments,
+ * shown twice at different levels of detail).
  */
 export function HeroIllustration({ stages }: HeroIllustrationProps) {
+  const activeIndex = Math.min(2, stages.length - 1);
+
   return (
     <div className={styles.stage} aria-hidden="true">
       <span className={styles.glow} data-variant="cyan" />
@@ -30,10 +35,11 @@ export function HeroIllustration({ stages }: HeroIllustrationProps) {
             <stop offset="100%" stopColor="var(--color-yellow)" />
           </linearGradient>
         </defs>
-        <path d="M200 200 L20 70" />
-        <path d="M200 200 L380 40" />
-        <path d="M200 200 L10 340" />
-        <path d="M200 200 L385 370" />
+        <path d="M200 200 L20 60" />
+        <path d="M200 200 L385 95" />
+        <path d="M200 200 L375 330" />
+        <path d="M200 200 L200 392" />
+        <path d="M200 200 L15 315" />
       </svg>
 
       <div className={styles.panel}>
@@ -43,9 +49,18 @@ export function HeroIllustration({ stages }: HeroIllustrationProps) {
           <span className={styles.panelDot} />
         </div>
         <div className={styles.panelBody}>
-          <div className={styles.skeletonRow} style={{ width: "82%" }} />
-          <div className={styles.skeletonRow} style={{ width: "58%" }} />
-          <div className={styles.skeletonRow} style={{ width: "68%" }} />
+          <div className={styles.miniTimeline}>
+            <span className={styles.timelineTrack} />
+            {stages.map((stage, index) => (
+              <span
+                key={stage.title}
+                className={styles.timelineNode}
+                data-active={index === activeIndex ? "true" : undefined}
+              />
+            ))}
+          </div>
+          <div className={styles.skeletonRow} style={{ width: "78%" }} />
+          <div className={styles.skeletonRow} style={{ width: "54%" }} />
           <div className={styles.metrics}>
             <span className={styles.ring} />
             <div className={styles.bars}>
